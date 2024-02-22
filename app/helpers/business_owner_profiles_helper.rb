@@ -1,0 +1,2 @@
+module BusinessOwnerProfilesHelper
+end

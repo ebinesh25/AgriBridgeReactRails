@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lister_name: MyString
+  lister_designation: MyString
+  company_name: MyString
+  Addr1: MyText
+  Addr2: MyText
+  Taluk: MyString
+  District: MyString
+  State: MyString
+  Country: MyString
+  phone: MyString
+  user: one
+
+two:
+  lister_name: MyString
+  lister_designation: MyString
+  company_name: MyString
+  Addr1: MyText
+  Addr2: MyText
+  Taluk: MyString
+  District: MyString
+  State: MyString
+  Country: MyString
+  phone: MyString
+  user: two

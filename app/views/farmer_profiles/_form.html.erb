@@ -1,0 +1,62 @@
+<%= form_with(model: farmer_profile) do |form| %>
+  <% if farmer_profile.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(farmer_profile.errors.count, "error") %> prohibited this farmer_profile from being saved:</h2>
+
+      <ul>
+        <% farmer_profile.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :Addr1, style: "display: block" %>
+    <%= form.text_area :Addr1 %>
+  </div>
+
+  <div>
+    <%= form.label :Addr2, style: "display: block" %>
+    <%= form.text_area :Addr2 %>
+  </div>
+
+  <div>
+    <%= form.label :Taluk, style: "display: block" %>
+    <%= form.text_field :Taluk %>
+  </div>
+
+  <div>
+    <%= form.label :District, style: "display: block" %>
+    <%= form.text_field :District %>
+  </div>
+
+  <div>
+    <%= form.label :State, style: "display: block" %>
+    <%= form.text_field :State %>
+  </div>
+
+  <div>
+    <%= form.label :Country, style: "display: block" %>
+    <%= form.text_field :Country %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
