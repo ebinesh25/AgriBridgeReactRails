@@ -1,2 +1,7 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Hello User</h1>
+<p> your number is <%= @user.phone%> </p>
+<% if @user.role%>
+    <p> You are a farmer </p>
+<%else%>
+    <p> You are a Small Scale Business Owner </p>
+<%end%>
