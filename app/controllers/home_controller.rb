@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
 
   def index
@@ -12,4 +12,3 @@ class HomeController < ApplicationController
 
   end
 end
-rails g scaffold BusinessOwnerProfile lister_name lister_designation company_name Addr1:text Addr2:text Taluk District State Country phone user:references

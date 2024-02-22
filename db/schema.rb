@@ -10,18 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_22_163625) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_22_181412) do
+  create_table "business_owner_profiles", force: :cascade do |t|
+    t.string "lister_name"
+    t.string "lister_designation"
+    t.string "company_name"
+    t.text "Addr1"
+    t.text "Addr2"
+    t.string "Taluk"
+    t.string "District"
+    t.string "State"
+    t.string "Country"
+    t.string "phone"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_business_owner_profiles_on_user_id"
+  end
+
+  create_table "farmer_profiles", force: :cascade do |t|
+    t.string "name"
+    t.text "Addr1"
+    t.text "Addr2"
+    t.string "Taluk"
+    t.string "District"
+    t.string "State"
+    t.string "Country"
+    t.string "phone"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_farmer_profiles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "role", default: -1
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "phone"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "business_owner_profiles", "users"
+  add_foreign_key "farmer_profiles", "users"
 end

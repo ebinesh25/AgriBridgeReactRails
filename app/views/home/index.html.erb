@@ -1,6 +1,6 @@
 <h1>Hello User</h1>
 <p> your number is <%= @user.phone%> </p>
-<% if @user.role%>
+<% if @user.role == 0%>
     <p> You are a farmer </p>
 <%else%>
     <p> You are a Small Scale Business Owner </p>

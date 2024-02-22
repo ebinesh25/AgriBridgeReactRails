@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   validates :phone, uniqueness: true
 
+  has_one :farmer_profile
+  has_one :business_owner_profile
+
+
   def email_required?
     false
   end
