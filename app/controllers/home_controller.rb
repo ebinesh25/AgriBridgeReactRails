@@ -4,11 +4,11 @@ class HomeController < ApplicationController
 
   def index
     @user = current_user
+    @listings = Listing.all
 
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @user }
     end
-
   end
 end

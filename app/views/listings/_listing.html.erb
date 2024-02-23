@@ -18,5 +18,18 @@
     <strong>Available quantity:</strong>
     <%= listing.available_quantity %>
   </p>
+  <div class="Images">
+        <% if listing.primary_image.attached? %>
+            <img src="<%= url_for(listing.primary_image) %>" alt="Primary Image">
+        <% end %>
+
+        <% if listing.additional_image_1.attached? %>
+            <img src="<%= url_for(listing.additional_image_1) %>" alt="Additional Image 1">
+        <% end %>
+
+        <% if listing.additional_image_2.attached? %>
+            <img src="<%= url_for(listing.additional_image_2) %>" alt="Additional Image 2">
+        <% end %>
+  </div>
 
 </div>

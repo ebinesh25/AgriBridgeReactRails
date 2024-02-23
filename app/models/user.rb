@@ -9,7 +9,9 @@ class User < ApplicationRecord
   has_one :farmer_profile
   has_one :business_owner_profile
 
-  enum role: {farmer:0, business_owner: 1}
+  has_many :listings
+
+  # enum role: {farmer:0, business_owner: 1}
 
   def profile
     return farmer_profile if role == 0

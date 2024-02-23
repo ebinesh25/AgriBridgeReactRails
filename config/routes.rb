@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' } do
     resources :business_owner_profiles
     resources :farmer_profiles
+    resources :listings
+
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

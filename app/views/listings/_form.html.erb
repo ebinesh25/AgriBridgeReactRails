@@ -31,6 +31,22 @@
     <%= form.text_field :available_quantity %>
   </div>
 
+
+  <div>
+    <%= form.label :primary_image, style: "display: block" %>
+    <%= form.file_field :primary_image %>
+  </div>
+
+  <div>
+    <%= form.label :additional_image_1, style: "display: block" %>
+    <%= form.file_field :additional_image_1 %>
+  </div>
+
+  <div>
+    <%= form.label :additional_image_2, style: "display: block" %>
+    <%= form.file_field :additional_image_2 %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>
