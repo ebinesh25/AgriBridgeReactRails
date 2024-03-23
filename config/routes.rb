@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :listings
+  resources :farmer_profiles
+  resources :business_owner_profiles
 
   get 'home/index'
   devise_for :users, controllers: { registrations: 'users/registrations' } do
