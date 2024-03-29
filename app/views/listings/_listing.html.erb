@@ -18,6 +18,11 @@
     <strong>Available quantity:</strong>
     <%= listing.available_quantity %>
   </p>
+  
+  <p>
+    <strong>Address</strong>
+    <%= listing.address %>
+  </p>
   <div class="Images">
         <% if listing.primary_image.attached? %>
             <img src="<%= url_for(listing.primary_image) %>" alt="Primary Image">

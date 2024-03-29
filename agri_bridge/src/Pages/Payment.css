@@ -1,0 +1,103 @@
+/* Payment.css */
+.payment-page {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 12%;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.payment-options {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.payment-options label {
+  font-size: 18px;
+  color: #555;
+}
+
+.payment-options input[type="radio"] {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.card-details input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  width: 70%;
+}
+
+.card-details button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  width: 50%;
+}
+
+.card-details button:hover {
+  background-color: #0056b3;
+}
+.order-message {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #dff0d8;
+  color: #3c763d;
+  border: 1px solid #d6e9c6;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+}
+.confirm-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.confirm-button:hover {
+  background-color: #0056b3;
+}

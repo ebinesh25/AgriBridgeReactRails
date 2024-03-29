@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+body {
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.container {
+  margin-left: 10%;
+}
+.container h2 {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.paragraph-style {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.hero-section {
+  text-align: center;
+  height: 100%;
+  width: auto;
+  background-color: #b3dfbf;
+}
+.hero-section h1 {
+  padding-top: 5%;
+  font-size: 50px;
+  word-spacing: 10px;
+}
+
+input {
+  margin-top: 20px;
+  width: 600px;
+  height: 40px;
+  border-radius: 15px;
+  padding-left: 10px;
+  border: 2px solid rgb(134, 134, 134);
+}
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  font-size: 15px;
+}
+
+.list-button {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5%;
+}
+
+.button {
+  padding-top: 10px;
+  color: white;
+  background-color: rgb(0, 139, 74);
+  border-radius: 15px;
+  height: 30px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.topic-line {
+  height: 2px;
+  width: 10%;
+  background-color: black;
+}
+
+.content-box {
+  height: 550px;
+  width: 85%;
+}
+
+.inner-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sub-box {
+  height: auto;
+  width: 100%;
+  border: 1px solid rgb(201, 201, 201);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-top: 20px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.sub-box button {
+  height: 30px;
+  width: 70px;
+  border-radius: 10px;
+  border: none;
+  background-color: #3a8c5b;
+  color: white;
+  cursor: pointer;
+}
+
+.sub-box button:hover {
+  background-color: #1a6538;
+}
+.inner-sub-box {
+  height: 150px;
+  width: 100%;
+  background-image: url("../pic/grass-roll.png");
+  border-radius: 10px;
+  background-size: 500px;
+  margin-right: 30px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.slide-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-box {
+  padding-top: 2%;
+  height: 550px;
+  width: 800px;
+  margin-right: 80px;
+}
+
+.slider-content {
+  padding-left: 20px;
+  height: 260px;
+  width: 800px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.slider-textbox {
+  display: inline-flex;
+}
+
+.slider-info {
+  height: 180px;
+  width: 590px;
+  border: 1px solid transparent;
+}
+
+.slider-imgbox {
+  background-image: url("../pic/grass-roll.png");
+  background-position: center;
+  background-size: cover;
+  height: 180px;
+  width: 180px;
+  border: 1px solid black;
+}
+
+/* .slide-container button{
+  color: white; 
+  background-color: rgb(0, 139, 74);
+  border-radius: 5px;
+  height: 30px;
+  border: none;
+  width: 100px; 
+  cursor: pointer;
+} */
+
+.headerli {
+  cursor: pointer;
+  font-weight: bolder;
+}

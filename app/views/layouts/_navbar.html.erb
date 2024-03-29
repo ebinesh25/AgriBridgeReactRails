@@ -3,7 +3,9 @@
         <li><%= link_to "Home", "/" %></li>
         <li><%= link_to "About", "/about" %></li>
         <li><%= link_to "Contact", "/contact" %></li>
-        <%= link_to "Create Profile", (current_user.role ? new_farmer_profile_path : new_business_owner_profile_path) %>
+        <% if current_user %>
+        <li><%= link_to "Profile", current_user.profile ? edit_profile_path(current_user.profile) : new_profile_path %></li>
         <li><%= button_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <% end %>
     </ul>
 </nav>

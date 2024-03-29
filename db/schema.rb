@@ -39,7 +39,34 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_23_050648) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "business_owner_profiles", force: :cascade do |t|
+  create_table "jwt_denylist", force: :cascade do |t|
+    t.string "jti", null: false
+    t.datetime "exp", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jti"], name: "index_jwt_denylist_on_jti"
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.integer "profile_id"
+    t.string "title"
+    t.decimal "price_per_unit"
+    t.text "description"
+    t.decimal "available_quantity"
+    t.text "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "upi_id"
+    t.string "upi_number"
+    t.string "upi_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["latitude"], name: "index_listings_on_latitude"
+    t.index ["longitude"], name: "index_listings_on_longitude"
+    t.index ["profile_id"], name: "index_listings_on_profile_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
     t.string "lister_name"
     t.string "lister_designation"
     t.string "company_name"
@@ -50,36 +77,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_23_050648) do
     t.string "State"
     t.string "Country"
     t.string "phone"
+    t.text "address"
+    t.float "latitude"
+    t.float "longitude"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_business_owner_profiles_on_user_id"
-  end
-
-  create_table "farmer_profiles", force: :cascade do |t|
-    t.string "name"
-    t.text "Addr1"
-    t.text "Addr2"
-    t.string "Taluk"
-    t.string "District"
-    t.string "State"
-    t.string "Country"
-    t.string "phone"
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_farmer_profiles_on_user_id"
-  end
-
-  create_table "listings", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "title"
-    t.decimal "price_per_unit"
-    t.text "description"
-    t.decimal "available_quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_listings_on_user_id"
+    t.index ["latitude"], name: "index_profiles_on_latitude"
+    t.index ["longitude"], name: "index_profiles_on_longitude"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,7 +103,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_23_050648) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "business_owner_profiles", "users"
-  add_foreign_key "farmer_profiles", "users"
-  add_foreign_key "listings", "users"
+  add_foreign_key "listings", "profiles"
+  add_foreign_key "profiles", "users"
 end

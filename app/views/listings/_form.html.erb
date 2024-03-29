@@ -33,6 +33,11 @@
 
 
   <div>
+    <%= form.label :upi_name, style: "display: block" %>
+    <%= form.text_field :upi_name %>
+  </div>
+
+  <div>
     <%= form.label :primary_image, style: "display: block" %>
     <%= form.file_field :primary_image %>
   </div>
@@ -47,6 +52,25 @@
     <%= form.file_field :additional_image_2 %>
   </div>
 
+  <div class='payment'>
+    <h3> Payment Details </h3>
+    <div>
+      <%= form.label :upi_number, style: "display: block" %>
+      <%= form.text_field :upi_number %>
+    </div>
+
+    <div>
+      <%= form.label :upi_id, style: "display: block" %>
+      <%= form.text_field :upi_id %>
+    </div>
+
+    <div>
+      <%= form.label :upi_qr_code, style: "display: block" %>
+      <%= form.file_field :upi_qr_code %>
+    </div>
+
+  </div>
+    
   <div>
     <%= form.submit %>
   </div>

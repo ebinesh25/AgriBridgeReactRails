@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
+  resources :profiles
   resources :listings
-  resources :farmer_profiles
   resources :business_owner_profiles
 
   get 'home/index'
   devise_for :users, controllers: { registrations: 'users/registrations' } do
-    resources :business_owner_profiles
-    resources :farmer_profiles
+    resources :profiles
     resources :listings
 
   end

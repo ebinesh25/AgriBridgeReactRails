@@ -1,0 +1,55 @@
+.footer-class {
+  padding-bottom: 20px;
+  height: 330px;
+  width: 100%;
+
+  background-color: #272727;
+}
+
+.foot-line {
+  display: inline-flex;
+  padding-top: 1px;
+  margin-left: 10%;
+  margin-top: 5%;
+  height: 1px;
+  width: 80%;
+  background-color: white;
+}
+
+.footer-left {
+  color: white;
+  height: 100px;
+  width: 30%;
+  margin-top: 4%;
+}
+
+.footer-right {
+  display: inline-flex;
+  height: 100px;
+  width: 60%;
+  margin-top: 4%;
+  margin-left: 10%;
+  gap:30%;
+}
+
+.footer-right h4 {
+  color: #62c088;
+}
+
+.footer-right p {
+  color: white;
+  margin-bottom: 10px;
+  margin-right: 10px; 
+  font-size: 14px; 
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 100;
+  width: 100%;
+}
+/* Link tag  */
+.l{
+  color: white;
+  text-decoration: none;
+}

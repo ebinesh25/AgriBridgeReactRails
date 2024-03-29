@@ -1,0 +1,79 @@
+
+#head_box{
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+}
+#i-mage{
+    background-image: url('./pic/grass-roll.png');
+    background-position: center;
+    background-size: cover;
+    margin-top: 80px;
+    height:300px;
+    width:350px;
+    border-radius: 10px;
+    background-color: red;
+}
+#img_right_content{
+    margin-left: 30px;
+    height: 450px;
+    width: 450px; 
+}
+
+#seller_message{
+    padding: 1px 12px;
+    height: 200px;
+    width: 400px;
+    border-radius: 10px;
+    background-color: rgb(180, 255, 180);
+    border: 1px solid green;
+}
+#seller_content{
+    text-align: justify;
+    height: 130px;
+    width: 400px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#cart_button{
+    border-radius: 5px;
+    border: 1px solid green;
+    height: 40px;
+    width: 200px;
+    margin-right: 25px;
+    margin-top: 20px;
+}
+
+#buyer{
+    background-color: rgb(180, 255, 180);
+    border-radius: 5px;
+    justify-content: center;
+    height: 310px;
+    width: 440px;
+    margin-left: 10px;
+    margin-right: 20px;
+    border:1px solid green;
+}
+#buyer #review{
+    border-radius: 5px;
+    margin: 5px 20px;
+    height: 110px;
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+}
+
+#review p{
+    padding: 20px 10px;
+    font-size: small;
+    text-align: justify;
+}
+#buyer h3{
+    margin-left: 20px;
+}
+
+#buyer  img {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+}
