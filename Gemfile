@@ -73,3 +73,6 @@ gem "jquery-rails", "~> 4.6"
 gem "geocoder", "~> 1.8"
 
 gem "byebug", "~> 11.1"
+
+gem "rack-cors", "~> 2.0"
+gem "faker", "~> 3.3"

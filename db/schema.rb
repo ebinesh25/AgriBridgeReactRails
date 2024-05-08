@@ -39,14 +39,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_23_050648) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "jwt_denylist", force: :cascade do |t|
-    t.string "jti", null: false
-    t.datetime "exp", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["jti"], name: "index_jwt_denylist_on_jti"
-  end
-
   create_table "listings", force: :cascade do |t|
     t.integer "profile_id"
     t.string "title"

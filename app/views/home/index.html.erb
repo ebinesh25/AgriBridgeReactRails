@@ -1,11 +1,11 @@
 <h1>Hello User</h1>
+
 <p> your number is <%= @user.phone%> </p>
 <% if @user.role == 0%>
     <p> You are a farmer </p>
 <%else%>
     <p> You are a Small Scale Business Owner </p>
 <%end%>
-<%= @profile.address%>
 <%= link_to "Create Listing", new_listing_path %>
 <hr/>
 <% count = 0%>
@@ -38,7 +38,6 @@
             
     <% end %>
 <%else%>
-    <%byebug%>
     <h1> Near Listings </h1>
     <% @nearby_listings.each do |listing|%>
         <% count += 1%>
