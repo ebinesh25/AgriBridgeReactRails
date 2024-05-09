@@ -78,3 +78,5 @@ gem "rack-cors", "~> 2.0"
 gem "faker", "~> 3.3"
 
 gem "devise-api", "~> 0.1.3"
+
+gem "cancancan", "~> 3.5"

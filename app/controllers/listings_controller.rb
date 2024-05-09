@@ -17,6 +17,12 @@ class ListingsController < ApplicationController
   # GET /listings/1 or /listings/1.json
   def show
     @listing = Listing.find(params[:id])
+    @profile = Profile.find(@listing.profile_id)
+    @recommended_listings = Listing.where("LOWER(crop_name) = LOWER(?)", @listing.crop_name).where.not(id: @listing.id).limit(10)    
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render :show, formats: :json, as: :listing, locals: { listing: @listing} }
+    end
   end
 
   # GET /listings/new
@@ -80,7 +86,7 @@ class ListingsController < ApplicationController
     end
 
     def set_profile
-      @profile = current_user.profile
+      # @profile = current_user.profile
     end
 
     # Only allow a list of trusted parameters through.
