@@ -1,0 +1,55 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    
+}
+
+.container .h2 {
+  padding-left: 0px !important;
+  margin-left: 0;
+}
+
+.details {
+  padding: 1.2rem;
+  border: 1px solid rgb(70, 83, 56);
+}
+.product-details {
+  text-align: left;
+  width: 70%;
+}
+
+
+.product-details .price {
+  color: rgb(41, 65, 17);
+}
+
+.product-details .price span {
+  color: rgb(70, 83, 56);
+  font-size: 1rem;
+}
+
+.profile-details {
+  width: 29%;
+  height: 100%;
+  padding-top: 0px;
+}
+
+.profile-details .content {
+  flex-direction: column;
+}
+
+.profile-details a {
+  border: 2px solid;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.profile-details a:hover {
+  background-color: rgb(70, 83, 56);
+  color: white;
+}

@@ -1,0 +1,25 @@
+.container .posts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.topic-line {
+  height: 2px;
+  width: 10%;
+  background-color: black;
+}
+.loadmore-container {
+  width: fit-content;
+  margin-inline: auto;
+
+}
+.loadmore-container .loadmore {
+  background: none;
+  border-radius: 15px;
+  padding: 12px;
+}
+.loadmore-container .loadmore:hover {
+  background-color: #3a8c5b;
+  cursor: pointer;
+}
