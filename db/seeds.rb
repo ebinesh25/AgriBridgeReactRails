@@ -9,16 +9,31 @@
 #   end
 require 'faker'
 
-10.times do
-  Listing.create(
-    profile_id: Faker::Number.unique.between(from: 1, to: 10), # assuming profiles have IDs from 1 to 10
+# Array of locations
+locations = [
+  "Townhall", "Selvapuram", "Rathinapuri", "Tatabad", "Sivananda Colony", "Gandhipuram", "Ukkadam", "Kottaimedu", "Ramnagar", "Sukrawarpettai", 
+  "R.S Puram", "Saibaba Colony", "Venkatapuram", "Ponnairajapuram", "Race Course", "Gopalapuram", "Sidhapudur", "Avarampalayam", "Sundakkamuthur", 
+  "Podanur", "Karumbukadai", "Sundarapuram", "Kurichi", "Eachanari", "Chettipalayam", "Vellalore", "Kuniyamuthur", "Sugunapuram", "Kovaipudur", 
+  "Sokkampudhur", "Thondamuthur", "Madhampatti", "Kuppanur", "", "Ramnathapuram", "Singanallur", "Puliakulam", "Ondipudur", "Varadarajapuram", 
+  "Peelamedu", "Meena Estate", "Udayampalayam", "Nanjundapuram", "Nehru Nagar", "Vilankurichi", "Ganapathy", "Cheranmanagar", "Nallampalayam", 
+  "Gandhimanagar", "Chinniampalayam", "Sowripalayam", "G.V Residency", "Uppilipalayam", "Perur", "Vadavalli", "Veerakeralam", "Veedapaati", 
+  "P.N.Pudur", "Kalveerampalayam", "Karamadai", "Periyanaickenpalayam", "Poochiyur", "RAVATHA KOLLANUR", "Thadagam", "Maruthamalai", "Pannimadai", 
+  "Saravanampatti", "Kalapatti", "Keeranatham", "Pachapalayam", "Annur", "Ganesapuram", "Kariampalayam", "Kovilpalayam", "Kurumbapalayam", "Walayar", 
+  "K.G Chavadi", "Ettimadai", "Odaiyakulam", "Thirumalayampalayam", "Somanur", "Irugur", "Sulur", "Thondamuthur", "Pooluvapatti", "Veerakeralam", 
+  "Karunya Nagar", "Thenkarai", "Narasipuram", "Puthur", "Alanthurai", "Veddapaati", "Kinathukadavu", "Myleripalayam", "Malumichampatti", 
+  "Othakalmandapam", "Samathur", "Suleeswaranpatti", "Maddukarai", "Annamalai hills"
+]
+
+profile = Profile.last
+# Loop to iterate over each element
+# locations.each do |location|
+3.times do
+  profile.listings.create(
     title: Faker::Commerce.product_name,
     price_per_unit: Faker::Commerce.price(range: 5..100.0, as_string: false),
     description: Faker::Lorem.paragraph(sentence_count: 3),
     available_quantity: Faker::Number.between(from: 1, to: 100),
-    address: "#{Faker::Address.street_address}, #{Faker::Address.city}, Tamil Nadu, India",
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude,
+    address: "#{locations.sample}, Coimbatore, Tamil Nadu, India",
     upi_id: Faker::Alphanumeric.alpha(number: 10),
     upi_number: Faker::PhoneNumber.cell_phone,
     upi_name: Faker::Name.name,

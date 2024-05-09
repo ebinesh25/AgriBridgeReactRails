@@ -6,6 +6,8 @@
 <%else%>
     <p> You are a Small Scale Business Owner </p>
 <%end%>
+
+<h4> you are from <%= @user.profile.address%> </h4>
 <%= link_to "Create Listing", new_listing_path %>
 <hr/>
 <% count = 0%>
@@ -61,6 +63,7 @@
         <% if listing.additional_image_2.attached? %>
             <img src="<%= url_for(listing.additional_image_2) %>" alt="Additional Image 2">
         <% end %>
+        <%= link_to 'View Listing', listing_path(listing) %>
             
     <% end %>
     <h1> Other Listings </h1>
@@ -69,6 +72,8 @@
         <hr/>
         <p>Title of listing: <%= listing.title%></p>
         <p>Price of listing: <%= listing.price_per_unit%></p>
+        <p>Address of listing: <%= listing.address%></p>
+
         <p>available quantity of listing: <%= listing.available_quantity%></p>
         <p> Total Cost: <%= listing.price_per_unit * listing.available_quantity %> </p>
         <hr/>

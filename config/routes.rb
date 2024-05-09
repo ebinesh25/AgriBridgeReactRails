@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :listings
   resources :business_owner_profiles
 
-  get 'home/index'
+  get 'home/index', to: 'home#index'
+  get 'home/search', to: 'home#search'
   devise_for :users, controllers: { registrations: 'users/registrations' } do
     resources :profiles
     resources :listings
