@@ -5,31 +5,59 @@ import { useNavigate } from "react-router-dom";
 import Section from "../Components/Section/Section"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import Modal from 'react-modal';
+import IFrame from "../Components/IFrame/IFrame";
+
 
 function Home() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     console.log("Use Effect ran ");
-    fetch('http://127.0.0.1:3000/home/index.json') // replace with your API endpoint
+    fetch('http://localhost:3000/home/index.json', {credentials: 'include'}) // replace with your API endpoint
       .then(response => response.json())
       .then(data => {
         console.log("JSON data", data);
-        window.current_user = data.user;
-        window.user_profile = data.user_profile;  
+        localStorage.setItem('current_user', JSON.stringify(data.user));
+        localStorage.setItem('user_profile', JSON.stringify(data.user_profile));
         setData(data);
       });
   }, []);
 
   
+  
+  
+  
+  const userProfile = localStorage.getItem('user_profile');
+  console.log("USR PROF",userProfile == undefined)
+  
+  
+  const [first, setFirst] = useState(false);
 
-  let current_user = window.current_user;
-  console.log("Current USer",current_user)
-
+  useEffect(() => {
+    // Check if the user has visited before
+    if (!localStorage.getItem('visitedBefore')) {
+      // If not, show the IFrame and set the flag in localStorage
+      setFirst(true);
+      localStorage.setItem('visitedBefore', 'true');
+    }
+  }, []); // Empty dependency array means this effect runs once on mount
+  
   return (
     <div className="box1">
       <Hero />
-      <Content data={data}/>
+      { first 
+            ? (<IFrame 
+              src={"http://localhost:3000/users/sign_in"}
+              button_text={`Chat with Seller`} 
+              profile={userProfile}
+              className={'link'}
+              context={'chat'}
+              />
+          ) 
+          : (      <Content data={data}/>
+        ) 
+          }
     </div>
   );
 }
@@ -41,13 +69,14 @@ const Hero = () => {
       <div className="hero-content">
         <h1>Transforming waste into worth</h1>
         <SearchBar />
-      </div>
-      {/* <p style={{ fontSize: "20px" }}>or</p>
+      <p style={{ fontSize: "20px" }}>or</p>
       <div className="list-button">
-        <div onClick={() => navigate("/product")} className="button">
-          List your By-products
-        </div>
-      </div> */}
+        {/*<div onClick={() => navigate("/listings/new")} className="button">
+          Post your By-Product
+  </div>*/}
+      <CreateProduct/>
+      </div>
+      </div>
     </div>
   );
 };
@@ -63,17 +92,8 @@ const SearchBar = () => {
 
   const handleSearchSubmit = (e) => { 
     e.preventDefault();
+    navigate(`/search?query=${search}`);
 
-    fetch(`http://localhost:3000/home/search?query=${search}`)
-    .then(response => response.json())
-    .then(data => {
-      // handle your data here
-      console.log(data);
-    })
-    .catch(error => {
-      // handle your error here
-      console.log(error);
-    });
   };
   
   return (
@@ -124,6 +144,56 @@ const Content = (props) => {
 
  
 };
+function CreateProduct() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  function openModal() {
+    setModalIsOpen(true);
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+  }
+
+  useEffect(() => {
+    function handleMessage(event) {
+      if (event.origin !== "http://localhost:3000") return;
+      console.log("Event received", event.data);
+      if (event.data && event.data.redirectUrl) {
+        const url = event.data.redirectUrl
+        console.log("Redirecting to", url);
+        closeModal();
+        navigate(url);
+      }
+    }
+  
+    window.addEventListener("message", handleMessage);
+  
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, [modalIsOpen]);
+
+  return (
+    <div>
+      <button className="create-post-button" onClick={openModal}>Create Post</button>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Create Post"
+        style={{
+          content: {
+            overflow: 'hidden'
+          }
+        }}
+      >
+        <iframe src="http://localhost:3000/listings/new" width="100%" height="100%" style={{overflow: 'none'}}></iframe>
+      </Modal>
+    </div>
+  );
+}
+
 
 //   const Section = (props) => {
 

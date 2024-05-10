@@ -1,0 +1,16 @@
+.page-search-button {
+    padding-inline: 4rem;
+    border-radius: 0.85rem;
+    align-items: center;
+
+}
+
+.page-search-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-search-bar .page-search {
+    width: 83%;
+}

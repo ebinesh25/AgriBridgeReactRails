@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 20px;
+    position: relative;
     
 }
 
@@ -35,6 +36,8 @@
   width: 29%;
   height: 100%;
   padding-top: 0px;
+  position: sticky;
+  top: 0;
 }
 
 .profile-details .content {
@@ -51,6 +54,19 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+.link {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  border: 2px solid;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .profile-details a:hover {
   color: white !important;
   background-color: rgb(70, 83, 56);

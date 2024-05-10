@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <div className="footer-container">
-      <div className="footer-class">
+      <div className="footer-class container">
         <div className="foot-line">
           <div className="footer-left">
             <h1>AgriBridge</h1>

@@ -9,7 +9,7 @@ const Section = (props) => {
     let title = props.title;
     let posts = props.posts;
     let totalPosts = posts ? posts.length : 0;
-    let post_limit = props.post_limit ? props.post_limit : 8;
+    let post_limit = props.post_limit ? props.post_limit : 6;
 
     console.log("Total posts", totalPosts)
     console.log("Post limit", post_limit)
@@ -19,7 +19,7 @@ const Section = (props) => {
 
     const showMore = () => {
       let cards = document.querySelectorAll(`.${title_key}`);
-      for (let i = lastIndex + 1; i <= lastIndex + post_limit && i < cards.length; i++) {
+      for (let i = lastIndex ; i < lastIndex + post_limit && i < cards.length; i++) {
         cards[i].style.display = 'block';
       }
       setLastIndex(lastIndex + post_limit);
@@ -61,7 +61,7 @@ const Section = (props) => {
         }
       </div>
 
-      {(totalPosts > 8 )&& (
+      {(totalPosts > post_limit )&& (
         <div className="loadmore-container">
           <button className={"loadmore"}data-title={title_key}>Load More</button>
         </div>

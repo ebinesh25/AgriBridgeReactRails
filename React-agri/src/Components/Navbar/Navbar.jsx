@@ -6,23 +6,24 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   const [menu,setMenu]=useState("Home")
   return (
-    
-    <div className='navbar'>
-      <div className='nav-logo'>
-        <img className="logo" src={logo} alt='logo'/>
-        <p>Agribridge</p>
-      </div>
-        <ul className="nav-menu">
-          <li onClick={()=>{setMenu("Home")}}><Link style={{textDecoration:"none"}} to ="/">SHOP</Link>{(menu==="Home")?<hr/>:<></>}</li>
-          <li onClick={()=>{setMenu("Orders")}}><Link style={{textDecoration:"none"}} to ="/cart">ORDERS</Link>{(menu==="Orders")?<hr/>:<></>}</li>
-          <li onClick={()=>{setMenu("About")}}><Link style={{textDecoration:"none"}} to ="/About">ABOUT</Link>{menu==="About"?<hr/>:<></>}</li>
-          <li onClick={()=>{setMenu("Contact")}}><Link style={{textDecoration:"none"}} to ="/Contact">CONTACT US</Link>{menu==="Contact"?<hr/>:<></>}</li>
-        </ul>
-        <div className="nav-login-cart">
-          <Link style={{textDecoration:"none"}} to="/LoginSignup"><button>Login</button></Link>
-          <Link style={{textDecoration:"none"}} to="/profiles/3"><button>Profile</button></Link>
-          <div className="nav-cart-count">0</div>
+    <div className="container">
+      <div className='navbar'>
+        <div className='nav-logo'>
+          <img className="logo" src={logo} alt='logo'/>
+          <p>Agribridge</p>
         </div>
+          <ul className="nav-menu">
+            <li onClick={()=>{setMenu("Home")}}><Link style={{textDecoration:"none"}} to ="/">SHOP</Link>{(menu==="Home")?<hr/>:<></>}</li>
+            <li onClick={()=>{setMenu("Orders")}}><Link style={{textDecoration:"none"}} to ="/cart">ORDERS</Link>{(menu==="Orders")?<hr/>:<></>}</li>
+            <li onClick={()=>{setMenu("About")}}><Link style={{textDecoration:"none"}} to ="/About">ABOUT</Link>{menu==="About"?<hr/>:<></>}</li>
+            <li onClick={()=>{setMenu("Contact")}}><Link style={{textDecoration:"none"}} to ="/Contact">CONTACT US</Link>{menu==="Contact"?<hr/>:<></>}</li>
+          </ul>
+          <div className="nav-login-cart">
+            <Link style={{textDecoration:"none"}} to="/LoginSignup"><button>Login</button></Link>
+            <Link style={{textDecoration:"none"}} to="/profiles/3"><button>Profile</button></Link>
+            <div className="nav-cart-count">0</div>
+          </div>
+      </div>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Section from "../Components/Section/Section";
+import IFrame from "../Components/IFrame/IFrame";
 
 function Product() {
   const location = useLocation();
@@ -78,14 +79,27 @@ const ListerDetails = (props) => {
   const name = props.data?.name;
   const designation = props.data?.designation;
   const profileUrl = props.data?.profile_url;
+  const chaturl = "/some/url"; // replace with your chat url
+  const userProfile = localStorage.getItem('user_profile');
+
 
   return (
     <div className="profile-details details ">
       <div className="content">
         <h2 style={{ paddingLeft: '0px' }}>{name}</h2>
         <h6>{designation}</h6>
-        <a href={profileUrl}> View Profile </a>
-        <a href={profileUrl}> View Profile </a>
+        <a href={profileUrl} className="link"> View Profile </a>
+       { userProfile 
+          ? (<a href={chaturl} className="link"> Chat with Seller </a>) 
+          : (<IFrame 
+                src={"http://localhost:3000/users/sign_in"}
+                button_text={`Chat with Seller`} 
+                profile={userProfile}
+                className={'link'}
+                context={'chat'}
+                />
+            )
+        }
         {/* <a href={chat}> Chat </a> */}
       </div>
     </div>
