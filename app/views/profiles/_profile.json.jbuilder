@@ -1,2 +1,2 @@
-json.extract! profile, :id, :created_at, :updated_at
-json.url profile_url(profile, format: :json)
+json.extract! profile, :id, :lister_name, :lister_designation, :company_name, :Addr1, :Addr2, :Taluk, :District, :State, :Country, :phone
+json.url profile_path(profile)

@@ -77,7 +77,7 @@ const ProductDetails = (props) => {
 const ListerDetails = (props) => {
   const name = props.data?.name;
   const designation = props.data?.designation;
-  const profileUrl = props.data?.profileUrl;
+  const profileUrl = props.data?.profile_url;
 
   return (
     <div className="profile-details details ">

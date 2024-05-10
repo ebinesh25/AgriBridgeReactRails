@@ -12,7 +12,7 @@ import Footer from './Components/Footer/footer';
 import Contact from './Pages/Contact'; 
 import About from './Components/About/About';
 import Product from './Pages/Product';
-
+import Profile from './Pages/Profile'
 function App() {
   return (
     <div>
@@ -21,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Shop/>}/>
           <Route path="/listings/:id" element={<Product/>}/>
+          <Route path="/profile/:id" element={<Profile/>}/>
           <Route path="/Cart" element={<Cart/>}/>
           <Route path="/LoginSignup" element={<LoginSignup/>}/>
           <Route path="/Product" element={<Pro/>}/>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_09_162853) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_09_195505) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -53,6 +53,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_162853) do
     t.index ["previous_refresh_token"], name: "index_devise_api_tokens_on_previous_refresh_token"
     t.index ["refresh_token"], name: "index_devise_api_tokens_on_refresh_token"
     t.index ["resource_owner_type", "resource_owner_id"], name: "index_devise_api_tokens_on_resource_owner"
+  end
+
+  create_table "favorite_items", force: :cascade do |t|
+    t.integer "profile_id", null: false
+    t.integer "listing_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_favorite_items_on_listing_id"
+    t.index ["profile_id"], name: "index_favorite_items_on_profile_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -112,6 +121,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_162853) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favorite_items", "listings"
+  add_foreign_key "favorite_items", "profiles"
   add_foreign_key "listings", "profiles"
   add_foreign_key "profiles", "users"
 end

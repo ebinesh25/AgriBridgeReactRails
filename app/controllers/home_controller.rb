@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  skip_before_action :verify_authenticity_token # Skip CSRF for API
   # before_action :authenticate_devise_api_token!
   before_action :authenticate_user! 
   skip_before_action :authenticate_user!, if: :api_request?

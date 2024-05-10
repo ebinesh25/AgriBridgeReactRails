@@ -3,6 +3,7 @@ import React from 'react';
 import DefaultThumbnail from "../pic/grass-roll.png";
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import Section from "../Components/Section/Section"
 
 function Home() {
   const [data, setData] = useState(null);
@@ -13,9 +14,17 @@ function Home() {
       .then(response => response.json())
       .then(data => {
         console.log("JSON data", data);
+        window.current_user = data.user;
+        window.user_profile = data.user_profile;  
         setData(data);
       });
   }, []);
+
+  
+
+  let current_user = window.current_user;
+  console.log("Current USer",current_user)
+
   return (
     <div className="box1">
       <Hero />
@@ -112,92 +121,92 @@ const Content = (props) => {
  
 };
 
-  const Section = (props) => {
+//   const Section = (props) => {
 
-    let title = props.title;
-    let posts = props.posts;
-    let totalPosts = posts.length;
-    let post_limit = 8;
-    console.log("Total posts", totalPosts)
-    let title_key = title.replace(/\s+/g, '-').toLowerCase();
-    const [lastIndex, setLastIndex] = useState(post_limit);
+//     let title = props.title;
+//     let posts = props.posts;
+//     let totalPosts = posts.length;
+//     let post_limit = 8;
+//     console.log("Total posts", totalPosts)
+//     let title_key = title.replace(/\s+/g, '-').toLowerCase();
+//     const [lastIndex, setLastIndex] = useState(post_limit);
 
-    const showMore = () => {
-      let cards = document.querySelectorAll(`.${title_key}`);
-      for (let i = lastIndex + 1; i <= lastIndex + post_limit && i < cards.length; i++) {
-        cards[i].style.display = 'block';
-      }
-      setLastIndex(lastIndex + post_limit);
-    };
+//     const showMore = () => {
+//       let cards = document.querySelectorAll(`.${title_key}`);
+//       for (let i = lastIndex + 1; i <= lastIndex + post_limit && i < cards.length; i++) {
+//         cards[i].style.display = 'block';
+//       }
+//       setLastIndex(lastIndex + post_limit);
+//     };
 
-    useEffect (() => {
-      console.log("Hiding cards for ", title_key)
-      let cards = document.querySelectorAll(`.${title_key}`);
-      cards.forEach((card, index) => {
-        if (index >= post_limit){
-          card.style.display = 'none';
-        }
-      });
-      let button = document.querySelector(`button[data-title=${title_key}]`);
-      if (button) {
-        button.addEventListener('click', showMore);
-      }
-    },[title_key]);
+//     useEffect (() => {
+//       console.log("Hiding cards for ", title_key)
+//       let cards = document.querySelectorAll(`.${title_key}`);
+//       cards.forEach((card, index) => {
+//         if (index >= post_limit){
+//           card.style.display = 'none';
+//         }
+//       });
+//       let button = document.querySelector(`button[data-title=${title_key}]`);
+//       if (button) {
+//         button.addEventListener('click', showMore);
+//       }
+//     },[title_key]);
 
-  return (
+//   return (
     
-    <div className="section-container" style={{marginTop:"10%",marginBottom: "10%"}}>
-      <h2>{title}</h2>
-      <div className="topic-line"></div>
-      <div className="posts">
-        {
-          posts.map((post, index) => (
-            <div className={`${title_key}`} data-index={index}>
-              <Box post={post}/>
-            </div>
-          ))
-        }
-      </div>
+//     <div className="section-container" style={{marginTop:"10%",marginBottom: "10%"}}>
+//       <h2>{title}</h2>
+//       <div className="topic-line"></div>
+//       <div className="posts">
+//         {
+//           posts.map((post, index) => (
+//             <div className={`${title_key}`} data-index={index}>
+//               <Box post={post}/>
+//             </div>
+//           ))
+//         }
+//       </div>
 
-      {(totalPosts > 8 )&& (
-        <div className="loadmore-container">
-          <button className={"loadmore"}data-title={title_key}>Load More</button>
-        </div>
-      )}
-    </div>
-  )};
+//       {(totalPosts > 8 )&& (
+//         <div className="loadmore-container">
+//           <button className={"loadmore"}data-title={title_key}>Load More</button>
+//         </div>
+//       )}
+//     </div>
+//   )};
 
-export const Box = (props) => {
-  let post = props.post
-  const navigate = useNavigate();
-  let title = post.title;
-  let description = post.description;
-  let price = post.price_per_unit;
-  let quantity = post.available_quantity;
-  let address = post.address;
-  let url = post.url;
-  let thumbnail = post.thumbnail;
+// export const Box = (props) => {
+//   let post = props.post
+//   const navigate = useNavigate();
+//   let title = post.title;
+//   let description = post.description;
+//   let price = post.price_per_unit;
+//   let quantity = post.available_quantity;
+//   let address = post.address;
+//   let url = post.url;
+//   let thumbnail = post.thumbnail;
 
-  return (
-    <div className="sub-box">
-      <div className="inner-sub-box">
-        <img src={thumbnail || DefaultThumbnail} alt="product" />
-        <p className="location">{address.split(', ').slice(0,2).join(', ')}</p>
+//   return (
+//     <div className="sub-box">
+//       <div className="inner-sub-box">
+//         <img src={thumbnail || DefaultThumbnail} alt="product" />
+//         <p className="location">{address.split(', ').slice(0,2).join(', ')}</p>
 
-      </div>
-      <h4>{title}</h4>
-      <div className="slide-container">
-        {/* <p className="paragraph-style">{description}</p> */}
-        <p className="paragraph-style">
-          {description.split(' ').slice(0, 8).join(' ') + (description.split(' ').length > 8 ? '...' : '')}
-        </p>
-        <div className="pills">
-          <p className="price box">Price: {price} ₹ <span>/ Ton</span>  </p>
-          <button  onClick={() => navigate(url)}>Check</button>
-        </div>
-      </div>
-    </div>
-  );
-};
+//       </div>
+//       <h4>{title}</h4>
+//       <div className="slide-container">
+//         {/* <p className="paragraph-style">{description}</p> */}
+//         <p className="paragraph-style">
+//           {description.split(' ').slice(0, 8).join(' ') + (description.split(' ').length > 8 ? '...' : '')}
+//         </p>
+//         <div className="pills">
+//           <p className="price box">Price: {price} ₹ <span>/ Ton</span>  </p>
+//           <button  onClick={() => navigate(url)}>Check</button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default Home;

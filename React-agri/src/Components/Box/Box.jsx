@@ -3,6 +3,9 @@ import React from 'react';
 import DefaultThumbnail from "../../pic/grass-roll.png";
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
 
 const Box = (props) => {
     let post = props.post
@@ -14,7 +17,36 @@ const Box = (props) => {
     let address = post.address;
     let url = post.url;
     let thumbnail = post.thumbnail;
-  
+    let listing_id = post.id;
+
+    // Assuming you have the current user ID and item ID available in your React component
+
+const toggleFavoriteItem = async () => {
+  console.log("TogglingS")
+  const profileId = window.user_profile.id; // Replace with the actual user ID
+  const listingId = listing_id; // Replace with the actual item ID
+
+  try {
+    const response = await fetch('http://localhost:3000/favorite_items/toggle_favorite_item', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ profile_id: profileId, listing_id: listingId }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data.message); // Output success message
+    } else {
+      const errorData = await response.json();
+      console.error(errorData.error); // Output error message
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
     return (
       <div className="sub-box">
         <div className="inner-sub-box">
@@ -30,7 +62,12 @@ const Box = (props) => {
           </p>
           <div className="pills">
             <p className="price box">Price: {price} ₹ <span>/ Ton</span>  </p>
-            <button  onClick={() => navigate(url)}>Check</button>
+            <div className="buttons">
+              <button  onClick={() => navigate(url)}>Check</button>
+              <button onClick={() => toggleFavoriteItem().catch(console.error)}>
+                <FontAwesomeIcon icon={faHeart} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
