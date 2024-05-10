@@ -1,9 +1,10 @@
 import "./Shop.css";
 import React from 'react';
-import DefaultThumbnail from "../pic/grass-roll.png";
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Section from "../Components/Section/Section"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
   const [data, setData] = useState(null);
@@ -84,7 +85,10 @@ const SearchBar = () => {
           value={search}
           onChange={handleSearchChange}
         />
-        <button type="submit">Search</button>
+        <button className="search-button" type="submit">
+          Search
+          <FontAwesomeIcon icon={faSearch} />
+        </button>
       </form>
     </div>
   );

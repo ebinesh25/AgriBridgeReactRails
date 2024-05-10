@@ -94,4 +94,5 @@
 
   .slide-container .pills .buttons button{
     padding-inline: 2rem;
+    width: fit-content;
   }

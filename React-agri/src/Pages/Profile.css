@@ -1,0 +1,25 @@
+form .multiple-elements {
+    display: flex;
+    justify-content: space-between;
+}
+
+.element.name {
+    width: 32%;
+}
+
+.element.address {
+    width: 24%;
+}
+
+.field {
+    margin: 1rem;
+}
+
+form .buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+
